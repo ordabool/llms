@@ -1,0 +1,18 @@
+# Core framework dependencies
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+
+# HTTP client
+httpx>=0.25.0
+
+# Environment and config
+python-dotenv>=1.0.0
+
+# Basic utilities
+loguru>=0.7.0
+
+# LLM and data packages
+agno>=0.1.0
+ollama>=0.1.0
+yfinance>=0.2.0

@@ -1,0 +1,40 @@
+services:
+  web-ui:
+    container_name: web-ui
+    image: ghcr.io/open-webui/open-webui:main
+    restart: always
+    ports:
+      - "5000:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - open-webui-local:/app/backend/data
+
+  ollama:
+    container_name: ollama
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-local:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: ["gpu"]
+            count: all
+
+  agno:
+    container_name: agno
+    build:
+      context: ./agno
+    tty: true
+    volumes:
+      - ./agno/src:/app
+    ports:
+      - "8000:8000"
+
+volumes:
+  ollama-local:
+  open-webui-local:
