@@ -29,6 +29,9 @@ services:
     container_name: agno
     build:
       context: ./agno
+    environment:
+      - OLLAMA_HOST=${OLLAMA_HOST}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
     tty: true
     volumes:
       - ./agno/src:/app

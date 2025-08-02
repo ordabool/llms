@@ -8,8 +8,6 @@ RUN pip install -r requirements.txt
 
 COPY ./src .
 
-ENV OLLAMA_HOST=http://ollama:11434
-
 CMD ["bash"]
 
 # CMD ["python", "app.py"]
