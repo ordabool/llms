@@ -6,7 +6,7 @@ from agno.tools.yfinance import YFinanceTools
 agent = Agent(
     model=Ollama(id="qwen3:8b"),
     tools=[YFinanceTools(stock_price=True)],
-    instructions="Use tables to display data. Don't include any other text.",
+    instructions="Fetch stock price using the tool. Use tables to display data. Don't include any other text.",
     markdown=True,
 )
 
@@ -17,4 +17,4 @@ agent = Agent(
 #     markdown=True,
 #     # debug_mode=True,
 # )
-agent.print_response("Use tables to display data. Don't include any other text.", stream=True)
+agent.print_response("What is the stock price of Nvidia?", stream=True)
