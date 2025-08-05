@@ -41,4 +41,4 @@ app = playground.get_app()
 
 if __name__ == "__main__":
     # agent.knowledge.load(recreate=True)
-    playground.serve("dragonbane_agent:app", reload=True)
+    playground.serve("dragonbane_agent:app", reload=True, host="0.0.0.0", port=7777)
