@@ -33,10 +33,20 @@ services:
       - OLLAMA_HOST=${OLLAMA_HOST}
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
     tty: true
+    ports:
+      - "7777:7777"
     volumes:
       - ./agno/src:/app
+
+  agent-ui:
+    container_name: agent-ui
+    build:
+      context: ./agent-ui
     ports:
-      - "8000:8000"
+      - "3000:3000"
+    tty: true
+    volumes:
+      - agent-ui-data:/app/agent-ui
 
   pgvector:
     container_name: pgvector
@@ -55,3 +65,4 @@ volumes:
   ollama-local:
   open-webui-local:
   pgvolume:
+  agent-ui-data:

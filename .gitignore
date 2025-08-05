@@ -2,3 +2,4 @@
 *.db
 tmp/
 pdfs/
+__pycache__/
