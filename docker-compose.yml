@@ -38,6 +38,20 @@ services:
     ports:
       - "8000:8000"
 
+  pgvector:
+    container_name: pgvector
+    image: agnohq/pgvector:16
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=ai
+      - POSTGRES_USER=ai
+      - POSTGRES_PASSWORD=ai
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - pgvolume:/var/lib/postgresql/data
+
 volumes:
   ollama-local:
   open-webui-local:
+  pgvolume:
